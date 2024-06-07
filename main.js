@@ -1,4 +1,5 @@
-(function(storyContent) {
+(function (storyContent) {
+    var FirstTime = function (storyContent) { }
 
     var story = new inkjs.Story(storyContent);
 
@@ -7,29 +8,6 @@
     let savedTheme;
     let globalTagTheme;
 
-    // Global tags - those at the top of the ink file
-    // We support:
-    //  # theme: dark
-    //  # author: Your Name
-    var globalTags = story.globalTags;
-    if( globalTags ) {
-        for(var i=0; i<story.globalTags.length; i++) {
-            var globalTag = story.globalTags[i];
-            var splitTag = splitPropertyTag(globalTag);
-
-            // THEME: dark
-            if( splitTag && splitTag.property == "theme" ) {
-                globalTagTheme = splitTag.val;
-            }
-
-            // author: Your Name
-            else if( splitTag && splitTag.property == "author" ) {
-                var byline = document.querySelector('.byline');
-                byline.innerHTML = "by "+splitTag.val;
-            }
-        }
-    }
-
     var storyContainer = document.querySelector('#story');
     var outerScrollContainer = document.querySelector('.outerContainer');
 
@@ -37,9 +15,6 @@
     setupTheme(globalTagTheme);
     var hasSave = loadSavePoint();
     setupButtons(hasSave);
-
-    // Set initial save point
-    savePoint = story.state.toJson();
 
     // Kick off the start of the story!
     continueStory(true);
@@ -130,7 +105,7 @@
                     removeAll("img");
 
                     // Comment out this line if you want to leave the header visible when clearing
-                    setVisible(".header", false);
+                    // setVisible(".header", false);
 
                     if( tag == "RESTART" ) {
                         restart();
@@ -278,9 +253,6 @@
         }
     }
 
-    // Helper for parsing out tags of the form:
-    //  # PROPERTY: value
-    // e.g. IMAGE: source path
     function splitPropertyTag(tag) {
         var propertySplitIdx = tag.indexOf(":");
         if( propertySplitIdx != null ) {
@@ -295,7 +267,6 @@
         return null;
     }
 
-    // Loads save state if exists in the browser memory
     function loadSavePoint() {
 
         try {
@@ -309,11 +280,8 @@
         }
         return false;
     }
-
-    // Detects which theme (light or dark) to use
     function setupTheme(globalTagTheme) {
 
-        // load theme from browser memory
         var savedTheme;
         try {
             savedTheme = window.localStorage.getItem('theme');
@@ -321,7 +289,6 @@
             console.debug("Couldn't load saved theme");
         }
 
-        // Check whether the OS/browser is configured for dark mode
         var browserDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
         if (savedTheme === "dark"
@@ -329,8 +296,6 @@
             || (savedTheme == undefined && globalTagTheme == undefined && browserDark))
             document.body.classList.add("dark");
     }
-
-    // Used to hook up the functionality for global functionality buttons
     function setupButtons(hasSave) {
 
         let rewindEl = document.getElementById("rewind");
