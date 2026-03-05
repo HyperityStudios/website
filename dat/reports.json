@@ -1,0 +1,51 @@
+{
+	"Debug":[
+		{
+			"title":"Bug report formatting guide",
+			"class":0,
+			"is_replicated":0,
+			"is_fixed":0,
+			"date":0,
+			"desc":"This category does not present itself in CBR, and thus is used to provide a formatting guide for further reports. If you're reading this inside CBR, something went wrong and please let us know in discord.",
+			"notes":"These are manually written. Debug was without spellcheck as well, so if i messed up any words here, whoopsies and please ignore them."
+		},
+		{
+			"title":"Bug Report Title",
+			"class":1,
+			"is_replicated":1,
+			"is_fixed":0,
+			"date":0,
+			"desc":"\"class\" represent how much the bug effects gameplay. 0/Safe has minimal impact, such as purely cosmetic issues. 1/Euclid bugs have a noticeable impact on the game, but not critically so. 2/Keter bugs critically effect the game, rendering it unplayable or extremely troubling.",
+			"notes":"is_replicated is a tag we (the developers) can use to mark a bug as replicated, meaning we can reproduce the issue. Replication is generally the first step in troubleshooting bugs. Similarly, is_fixed allows us to mark when a bug is fixed for a later version."
+		},
+		{
+			"title":"Date, desc, notes",
+			"class":2,
+			"is_replicated":0,
+			"is_fixed":0,
+			"date":0,
+			"desc":"date is a unix timestamp to track when the bug was reported and registered. Description is the text we (the devs) write to describe the bug itself, and how it may occur. They should be written formally (ish). Descrption and Notes also use RichTextLabels, so BBcode can be freely used.",
+			"notes":"notes are for any special comments that we (dev) think the players should know. these might be personal observations, or funny comments about the bug. Notes are also optional."
+		}
+	],
+	"Alpha 5":[
+		{
+			"title":"Inventory doesn't work as expected",
+			"class":1,
+			"is_replicated":1,
+			"is_fixed":0,
+			"date":1772736705,
+			"desc":"The player’s inventory doesn’t work entirely as expected. The hand slots don’t represent items being held, items can’t be held in the left hand, quickslots don’t work correctly and cannot be cleared without dropping their associated item.",
+			"notes":"The inventory is one of the older systems, and hasn’t been updated as our vision progressed. As such, it’s been left behind more so than other parts of the game. Given that we only have a few items in CBR, we’ve elected to ignore this until Alpha 7."
+		},
+		{
+			"title":"SCP-173 acts weirdly",
+			"class":1,
+			"is_replicated":1,
+			"is_fixed":0,
+			"date":1772736705,
+			"desc":"SCP-173 does not act in a fair or consistent manner, either following the player through doorways without end, or not following the player at all.",
+			"notes":"173 is the first and only moving SCP in CBR as of now, and hasn’t been updated since the early versions. As the level procgen has changed multiple times, 173’s navigation has become unreliable. Similarly, the AI hasn’t been refined for the new level formats either. We’ll be fixing this in due time, but it’s not a priority for the next few updates."
+		}
+	]
+}
