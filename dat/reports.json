@@ -6,7 +6,7 @@
 			"is_replicated":0,
 			"is_fixed":0,
 			"date":0,
-			"desc":"This category does not present itself in CBR, and thus is used to provide a formatting guide for further reports. If you're reading this inside CBR, something went wrong and please let us know in discord.",
+			"desc":"This category does not present itself in CBR, and thus is used to provide a formatting guide for further reports. If you're reading this inside CBR, something went wrong and please let us know on Discord.",
 			"notes":"These are manually written. Debug was without spellcheck as well, so if i messed up any words here, whoopsies and please ignore them."
 		},
 		{
@@ -30,6 +30,24 @@
 	],
 	"Alpha 5":[
 		{
+			"title":"Getting random crashes when exploring",
+			"class":2,
+			"is_replicated":1,
+			"is_fixed":0,
+			"date":1772751660,
+			"desc":"Sometimes when exploring the main game world, it'll hard quit without warning and no logs.",
+			"notes":"This bug is currently our primary focus, and is the result of a currently unknown source causing a memory access violation."
+		},
+		{
+			"title":"Out of bounds/prop-fly with SCP-012",
+			"class":0,
+			"is_replicated":1,
+			"is_fixed":0,
+			"date":1773263460,
+			"desc":"You are able to prop fly by grabbing the placeholder SCP-012, which can push you or it out of bounds.",
+			"notes":"This will be fixed once SCP-012's model is replaced with something more permanent, or player collisions are disabled.."
+		},
+		{
 			"title":"Inventory doesn't work as expected",
 			"class":1,
 			"is_replicated":1,
@@ -49,3 +67,4 @@
 		}
 	]
 }
+
